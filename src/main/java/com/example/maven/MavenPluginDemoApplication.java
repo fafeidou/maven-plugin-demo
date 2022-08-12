@@ -1,6 +1,7 @@
 package com.example.maven;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +12,11 @@ public class MavenPluginDemoApplication implements CommandLineRunner {
     @Autowired
     private MyConfig myConfig;
 
+    @Value("${app.test}")
+    private String testValue;
+
     public static void main(String[] args) {
-        System.out.println(MyConstant.APP_ID);
-        System.out.println(System.getProperty("app.test"));
+        System.out.println(com.example.maven.MyConstant.APP_ID);
         SpringApplication.run(MavenPluginDemoApplication.class, args);
     }
 
